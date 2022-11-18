@@ -5,7 +5,6 @@ const Header = (props) => {
 	return (
 		<header>
 			<img className="logo" src="../../public/logo.png"></img>
-			<div>Header</div>
 		</header>
 	);
 };
