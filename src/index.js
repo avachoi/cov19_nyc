@@ -8,9 +8,8 @@ const App = () => {
 	return (
 		<div>
 			<Header />
-			<div>'ava'jj</div>
 			{main}
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 };

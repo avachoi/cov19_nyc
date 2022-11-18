@@ -1,0 +1,24 @@
+body {
+	margin: 0;
+	background: #f0f0f0;
+	font-family: "Roboto Mono";
+	font-size: 14px;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	padding: 0px 30px;
+	height: 100px;
+	background-color: #402158;
+	color: #fffbf7;
+}
+
+.logo {
+	width: 200px;
+}
+
+footer {
+	height: 100px;
+	background-color: #402158;
+}

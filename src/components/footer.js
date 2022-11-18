@@ -1,6 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 
-const footer = (props) => {};
+const Footer = () => {
+	return <footer></footer>;
+};
 
-export default footer;
+export default Footer;
