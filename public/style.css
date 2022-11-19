@@ -18,7 +18,7 @@ header {
 	width: 200px;
 }
 
-tab-container {
+.tab-container {
 	margin-left: auto;
 }
 
@@ -43,7 +43,87 @@ header p {
 	justify-content: flex-start;
 }
 
-footer {
-	height: 100px;
+main {
+	margin: 80px 90px;
+}
+
+.drop-down {
+	display: flex;
+	margin: 10px 20px;
+	justify-content: flex-end;
+}
+
+.drop-down select {
+	margin-left: 20px;
+}
+
+/* __________________ TABLE __________________ */
+table {
+	border-collapse: separate;
+	background: #ffffff;
+	margin: 25px auto;
+	/*    width:60%;*/
+	width: 85%;
+}
+
+thead th {
+	font-size: 15px;
+	font-weight: 400;
+	color: #fffbf7;
+	text-align: left;
+	padding: 20px;
 	background-color: #402158;
+}
+
+thead th:first-child {
+	border-top-left-radius: 5px;
+}
+
+thead th:last-child {
+	border-top-right-radius: 5px;
+}
+
+tbody tr td {
+	font-weight: 400;
+	font-size: 13px;
+	padding: 20px;
+}
+
+tbody tr:nth-child(2n) {
+	background: #9d89c4;
+}
+
+tbody:hover > tr td {
+	opacity: 0.5;
+}
+
+tbody:hover > tr:hover td {
+	text-shadow: none;
+	color: #2d2d2d;
+	opacity: 1;
+}
+
+/* __________________ TABLE __________________ */
+.pages {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	margin-bottom: 25px;
+	padding-left: 0;
+}
+
+.pages li {
+	cursor: pointer;
+	padding: 10px 16px;
+	border: 1px solid #402158;
+	margin: 0 5px 0 5px;
+}
+
+.pages li:hover:not(.active) {
+	background-color: #9d89c4;
+}
+
+.current-page {
+	background: #402158;
+	color: #fffbf7;
 }

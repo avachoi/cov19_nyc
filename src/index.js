@@ -7,7 +7,6 @@ import Pagination from "./components/pagination.js";
 import Footer from "./components/footer.js";
 import SearchZipForm from "./components/searchZipForm.js";
 const axios = require("axios");
-import "./styles/app.scss";
 
 const App = () => {
 	const [covidData, setCovidData] = React.useState([]);
