@@ -7,7 +7,14 @@ const searchZipForm = (props) => {
 	}
 
 	return (
-		<input type="text" value={props.zipSearchVal} onChange={handleChange} />
+		<div>
+			<input
+				type="text"
+				value={props.zipSearchVal}
+				onChange={handleChange}
+				placeholder="Zipcode"
+			/>
+		</div>
 	);
 };
 
