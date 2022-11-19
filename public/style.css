@@ -18,6 +18,31 @@ header {
 	width: 200px;
 }
 
+tab-container {
+	margin-left: auto;
+}
+
+.tab-container div {
+	display: inline-block;
+	margin-left: 20px;
+	font-size: 15px;
+	letter-spacing: 3px;
+	font-weight: 900;
+}
+
+.tab-container div:hover {
+	cursor: pointer;
+}
+
+.selected-tab {
+	border-bottom: 3px solid #fffbf7;
+	padding-bottom: 4px;
+}
+
+header p {
+	justify-content: flex-start;
+}
+
 footer {
 	height: 100px;
 	background-color: #402158;
