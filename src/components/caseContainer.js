@@ -15,7 +15,15 @@ const CaseContainer = (props) => {
 			</thead>
 			<tbody>
 				{props.cases.map((covidCase, idx) => {
-					return <CaseRow />;
+					return (
+						<CaseRow
+							key={idx}
+							covidCase={covidCase}
+							idx={idx + 1}
+							showPerPage={props.showPerPage}
+							currentPage={props.currentPage}
+						/>
+					);
 				})}
 			</tbody>
 		</table>
