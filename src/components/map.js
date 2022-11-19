@@ -1,4 +1,8 @@
 import React from "react";
+import * as d3 from "d3";
+import * as d3Geo from "d3-geo";
+import { render } from "react-dom";
+import axios from "axios";
 import mapData from "./nyc.json";
 
 const Map = (props) => {
@@ -54,19 +58,25 @@ const Map = (props) => {
 				tooltip.transition().duration(500).style("opacity", 0);
 			});
 
+		const projection = d3
+			.geoMercator()
+			.scale(37300)
+			.fitSize([960, 720], mapData);
+		const path = d3.geoPath().projection(projection);
+
 		function areaColor(d) {
 			if (!d.properties.covid) {
-				return "black";
-			} else if (d.properties.covid.positive >= 100) {
-				return "#3D0DB8";
-			} else if (d.properties.covid.positive >= 75) {
-				return "#5231AD";
-			} else if (d.properties.covid.positive >= 50) {
-				return "#664D9E";
-			} else if (d.properties.covid.positive >= 25) {
-				return "#9D89C4";
-			} else if (d.properties.covid.positive < 25) {
-				return "#D7CFE8";
+				return "#104E8B";
+			} else if (d.properties.covid.positive > 1200) {
+				return "#140e36";
+			} else if (d.properties.covid.positive > 900) {
+				return "#402158";
+			} else if (d.properties.covid.positive > 600) {
+				return "#7d5683";
+			} else if (d.properties.covid.positive > 300) {
+				return "#c9bfb5";
+			} else if (d.properties.covid.positive <= 300) {
+				return "#e2e9ff";
 			}
 		}
 
