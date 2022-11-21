@@ -128,6 +128,25 @@ tbody:hover > tr:hover td {
 	color: #fffbf7;
 }
 
+/* __________________ MAP __________________ */
+.tooltip {
+	position: absolute;
+	text-align: center;
+	min-width: 100px;
+	min-height: 48px;
+	padding: 10px;
+	font: 12px sans-serif;
+	background: #140e36;
+	color: #e2e9ff;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 17px;
+}
+
 /* __________________ MEDIA QUERIES __________________ */
 @media screen and (max-width: 1024px) {
 	table {
