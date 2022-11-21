@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import * as d3Geo from "d3-geo";
 import { render } from "react-dom";
 import axios from "axios";
-import mapData from "./nyc.json";
+import mapData from "../../public/nyc.json";
 
 const Map = (props) => {
 	const rn = React.useRef(null);
