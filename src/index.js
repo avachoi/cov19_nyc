@@ -5,6 +5,7 @@ import CaseContainer from "./components/caseContainer.js";
 import FilterForm from "./components/filterForm.js";
 import Pagination from "./components/pagination.js";
 import Footer from "./components/footer.js";
+import Map from "./components/map.js";
 import SearchZipForm from "./components/searchZipForm.js";
 const axios = require("axios");
 
@@ -90,7 +91,15 @@ const App = () => {
 			</main>
 		);
 	} else {
-		main = <main></main>;
+		main = (
+			<main>
+				<SearchZipForm
+					handleZipSearch={handleZipSearch}
+					zipSearchVal={zipSearch}
+				/>
+				<Map covidData={covidData} zipSearch={zipSearch} />
+			</main>
+		);
 	}
 
 	return (
