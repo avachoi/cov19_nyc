@@ -15,7 +15,7 @@ module.exports = {
 		app.use("/public", publicPath);
 		app.use(cors());
 
-		// ROUTES
+		// ROUTES.
 		app.use("/api/covid", (req, res) => {
 			const API_URI =
 				"https://github.com/nychealth/coronavirus-data/blob/master/latest/last7days-by-modzcta.csv";
