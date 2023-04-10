@@ -6,10 +6,6 @@ const FilterForm = (props) => {
 		props.onDropDownChange(event.target.value);
 	}
 
-	function handleChildClick(event) {
-		event.stopPropagation();
-	}
-
 	return (
 		<div className="filterContainer">
 			<div className="select animated zoomIn">
@@ -24,9 +20,7 @@ const FilterForm = (props) => {
 						value="zip"
 						onClick={handleChange}
 					></input>
-					<span className="title animated fadeIn" onClick={handleChildClick}>
-						Zipcode
-					</span>
+					<span className="title animated fadeIn">Zipcode</span>
 				</label>
 				<label className="option" name="Map">
 					<input
@@ -35,9 +29,7 @@ const FilterForm = (props) => {
 						value="positive"
 						onClick={handleChange}
 					></input>
-					<span className="title animated fadeIn" onClick={handleChildClick}>
-						Positive
-					</span>
+					<span className="title animated fadeIn">Positive</span>
 				</label>
 			</div>
 		</div>

@@ -87,7 +87,7 @@ const App = () => {
 						currentPage={currentPage}
 					/>
 				</div>
-				<FilterForm onDropDownChange={handleChange} sort={sort} />
+				<FilterForm onDropDownChange={handleChange} />
 			</main>
 		);
 	} else {
