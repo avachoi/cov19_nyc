@@ -59,7 +59,7 @@ const App = () => {
 		);
 	}
 
-	//determine how the data will be split for each page
+	//determine how the data will be split for each page (pagination)
 	data = beforeFilter.slice(
 		showPerPage * currentPage - showPerPage,
 		showPerPage * currentPage
@@ -93,10 +93,6 @@ const App = () => {
 	} else {
 		main = (
 			<main>
-				<SearchZipForm
-					handleZipSearch={handleZipSearch}
-					zipSearchVal={zipSearch}
-				/>
 				<Map covidData={covidData} zipSearch={zipSearch} />
 			</main>
 		);

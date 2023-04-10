@@ -94,7 +94,6 @@ const Map = (props) => {
 				originalHex = d3.select(this).style("fill");
 				d3.select(this).attr("opacity", ".5");
 				tooltip.transition().duration(200).style("opacity", 0.9);
-				console.log(d);
 				tooltip
 					.html(
 						`City: ${d.properties.PO_NAME} <br> Zipcode: ${
