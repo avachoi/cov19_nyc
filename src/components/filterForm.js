@@ -2,9 +2,9 @@ import React from "react";
 import { render } from "react-dom";
 
 const FilterForm = (props) => {
-	function handleChange(event) {
+	const handleChange = (event) => {
 		props.onDropDownChange(event.target.value);
-	}
+	};
 
 	return (
 		<div className="filterContainer">
