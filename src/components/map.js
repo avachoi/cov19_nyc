@@ -130,8 +130,8 @@ const Map = (props) => {
 			.fitSize([960, 720], mapData);
 		const path = d3.geoPath().projection(projection);
 
-		//setting the color range of covid cases
-		const areaColor = (d) => {
+		//define colors of area depending on the total number of positive cases
+		function areaColor(d) {
 			if (!d.properties.covid) {
 				return "black";
 			} else if (d.properties.covid.positive >= 70) {
@@ -145,7 +145,7 @@ const Map = (props) => {
 			} else if (d.properties.covid.positive < 5) {
 				return "#D7CFE8";
 			}
-		};
+		}
 
 		group.append("path").attr("d", path).attr("class", "area");
 	};
