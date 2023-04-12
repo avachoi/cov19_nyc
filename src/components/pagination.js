@@ -2,10 +2,10 @@ import React from "react";
 import { render } from "react-dom";
 
 const Pagination = (props) => {
-	function handlePagination(event) {
+	const handlePagination = (event) => {
 		//send page number clicked to the onPageChange function
 		props.onPageChange(event.target.value);
-	}
+	};
 
 	const pages = [];
 	//create the number of pages needed for the amount of data

@@ -23,22 +23,22 @@ const App = () => {
 		});
 	}, []);
 
-	function handleChange(sortBy) {
+	const handleChange = (sortBy) => {
 		setSort(sortBy);
 		setCurrentPage(1);
-	}
+	};
 
-	function handlePagination(page) {
+	const handlePagination = (page) => {
 		setCurrentPage(page);
-	}
+	};
 
-	function handleToggle(tab) {
+	const handleToggle = (tab) => {
 		setCurrentTab(tab);
-	}
+	};
 
-	function handleZipSearch(zipSearch) {
+	const handleZipSearch = (zipSearch) => {
 		setZipSearch(zipSearch);
-	}
+	};
 
 	let sorted, beforeFilter, data;
 
@@ -87,7 +87,7 @@ const App = () => {
 						currentPage={currentPage}
 					/>
 				</div>
-				<FilterForm onDropDownChange={handleChange} sort={sort} />
+				<FilterForm onDropDownChange={handleChange} />
 			</main>
 		);
 	} else {

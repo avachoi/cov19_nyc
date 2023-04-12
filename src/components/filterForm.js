@@ -2,13 +2,9 @@ import React from "react";
 import { render } from "react-dom";
 
 const FilterForm = (props) => {
-	function handleChange(event) {
+	const handleChange = (event) => {
 		props.onDropDownChange(event.target.value);
-	}
-
-	function handleChildClick(event) {
-		event.stopPropagation();
-	}
+	};
 
 	return (
 		<div className="filterContainer">
@@ -24,9 +20,7 @@ const FilterForm = (props) => {
 						value="zip"
 						onClick={handleChange}
 					></input>
-					<span className="title animated fadeIn" onClick={handleChildClick}>
-						Zipcode
-					</span>
+					<span className="title animated fadeIn">Zipcode</span>
 				</label>
 				<label className="option" name="Map">
 					<input
@@ -35,9 +29,7 @@ const FilterForm = (props) => {
 						value="positive"
 						onClick={handleChange}
 					></input>
-					<span className="title animated fadeIn" onClick={handleChildClick}>
-						Positive
-					</span>
+					<span className="title animated fadeIn">Positive</span>
 				</label>
 			</div>
 		</div>
