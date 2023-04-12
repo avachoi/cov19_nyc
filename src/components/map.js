@@ -10,7 +10,7 @@ const Map = (props) => {
 
 	React.useEffect(() => {
 		renderMap();
-	}, []);
+	}, [mapData]);
 
 	const renderMap = () => {
 		const node = rn.current;
@@ -131,7 +131,7 @@ const Map = (props) => {
 		const path = d3.geoPath().projection(projection);
 
 		//setting the color range of covid cases
-		const areaColor = (d) => {
+		function areaColor(d) {
 			if (!d.properties.covid) {
 				return "black";
 			} else if (d.properties.covid.positive >= 70) {
@@ -145,7 +145,7 @@ const Map = (props) => {
 			} else if (d.properties.covid.positive < 5) {
 				return "#D7CFE8";
 			}
-		};
+		}
 
 		group.append("path").attr("d", path).attr("class", "area");
 	};
