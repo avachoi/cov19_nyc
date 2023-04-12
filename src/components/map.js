@@ -10,7 +10,7 @@ const Map = (props) => {
 
 	React.useEffect(() => {
 		renderMap();
-	}, [mapData]);
+	}, []);
 
 	const renderMap = () => {
 		const node = rn.current;
@@ -130,7 +130,7 @@ const Map = (props) => {
 			.fitSize([960, 720], mapData);
 		const path = d3.geoPath().projection(projection);
 
-		//setting the color range of covid cases
+		//define colors of area depending on the total number of positive cases
 		function areaColor(d) {
 			if (!d.properties.covid) {
 				return "black";
