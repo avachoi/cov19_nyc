@@ -16,17 +16,14 @@ const Pagination = (props) => {
 	return (
 		<ul className="pages">
 			{pages.map((page) => {
-				return props.currentPage === page ? (
+				let isActive = props.currentPage === page ? "current-page" : "";
+				return (
 					<li
-						className="current-page"
+						className={isActive}
 						key={page}
 						value={page}
 						onClick={handlePagination}
 					>
-						{page}
-					</li>
-				) : (
-					<li key={page} value={page} onClick={handlePagination}>
 						{page}
 					</li>
 				);
