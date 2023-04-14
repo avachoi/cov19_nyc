@@ -14,8 +14,6 @@ const Map = (props) => {
 
 	const renderMap = () => {
 		const node = rn.current;
-		const width = node.width.animVal.value;
-		const height = node.height.animVal.value;
 
 		//------------------------------------- LEGEND -------------------------------------
 
@@ -91,7 +89,7 @@ const Map = (props) => {
 			.append("g")
 			.attr("fill", areaColor)
 			.on("mouseover", function (d) {
-				//changes color opacity when hover
+				//changes opacity
 				originalHex = d3.select(this).style("fill");
 				d3.select(this).attr("opacity", ".5");
 				tooltip.transition().duration(200).style("opacity", 0.9);
