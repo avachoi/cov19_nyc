@@ -18,7 +18,7 @@ const Map = (props) => {
 
 		//------------------------------------- LEGEND -------------------------------------
 
-		const colorScheme = [
+		const colorScheme = [ 
 			"#3D0DB8",
 			"#5231AD",
 			"#664D9E",
