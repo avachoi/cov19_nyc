@@ -14,34 +14,56 @@ module.exports = {
 		});
 		app.use("/public", publicPath);
 		app.use(cors());
+		function stringify(obj) {
+			let cache = [];
+			let str = JSON.stringify(obj, function (key, value) {
+				if (typeof value === "object" && value !== null) {
+					if (cache.indexOf(value) !== -1) {
+						// Circular reference found, discard key
+						return;
+					}
+					// Store value in our collection
+					cache.push(value);
+				}
+				return value;
+			});
+			cache = null; // reset the cache
+			return str;
+		}
+		// ROUTES
 
-		// ROUTES.
 		app.use("/api/covid", (req, res) => {
+			let data = [];
 			const API_URI =
 				"https://github.com/nychealth/coronavirus-data/blob/master/latest/last7days-by-modzcta.csv";
 			axios(API_URI).then((response) => {
 				const html = response.data;
 				const $ = cheerio.load(html);
-				const statsTable = $(".markdown-body .csv-data tbody > .js-file-line");
+
+				let script =
+					$("script").get()[0].parent.parent.children[1].next.children[0].next
+						.children[0].next.next.next.next.next.next.next.next.next
+						.children[0].next.children[0].next.children[0].next.next.next
+						.children[0].next.children[0].next.children[0].next.children[0]
+						.data;
+
+				data = JSON.parse(script).payload.blob.csv.slice(1);
+
 				const covidByZipCode = [];
 				let id = 1;
 
-				statsTable.each(function () {
-					const zip_code = $(this).find("td:nth-child(2)").text();
-					const pos = $(this).find("td:nth-child(9)").text();
-					const tested = $(this).find("td:nth-child(8)").text();
-
-					if (zip_code !== "" && zip_code !== "MODZCTA" && zip_code !== "NA") {
-						covidByZipCode.push({
-							id: id,
-							zipCode: zip_code,
-							positive: pos,
-							total: tested,
-						});
-						id++;
-					}
+				data.forEach(function (area) {
+					const zip_code = area[0];
+					const pos = area[7];
+					const tested = area[6];
+					covidByZipCode.push({
+						id: id,
+						zipCode: zip_code,
+						positive: pos,
+						total: tested,
+					});
+					id++;
 				});
-
 				res.status(200).send(JSON.stringify(covidByZipCode));
 			});
 		});

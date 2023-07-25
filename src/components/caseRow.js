@@ -4,7 +4,6 @@ import { render } from "react-dom";
 const CaseRow = (props) => {
 	const { zipCode, positive, total } = props.covidCase;
 	const { showPerPage, currentPage } = props;
-
 	return (
 		<tr>
 			<td>{showPerPage * currentPage - showPerPage + props.idx}</td>

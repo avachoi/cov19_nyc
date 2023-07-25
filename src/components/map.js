@@ -14,6 +14,7 @@ const Map = (props) => {
 
 	const renderMap = () => {
 		const node = rn.current;
+		const SVG = d3.select(node);
 
 		//------------------------------------- LEGEND -------------------------------------
 
@@ -25,7 +26,7 @@ const Map = (props) => {
 			"#D7CFE8",
 			"black",
 		];
-		const SVG = d3.select(node);
+
 		const keys = [
 			"70 or more",
 			"30 to 69",
@@ -89,11 +90,11 @@ const Map = (props) => {
 			.append("g")
 			.attr("fill", areaColor)
 			.on("mouseover", function (d) {
-				//changes opacity
+				//changes opacity of the area
 				originalHex = d3.select(this).style("fill");
 				d3.select(this).attr("opacity", ".5");
-				tooltip.transition().duration(200).style("opacity", 0.9);
-				tooltip //shows the tooltip
+				tooltip.transition().duration(200).style("opacity", 0.9); //shows the tooltip
+				tooltip
 					.html(
 						`City: ${d.properties.PO_NAME} <br> Zipcode: ${
 							d.properties.postalCode
@@ -105,7 +106,7 @@ const Map = (props) => {
 					.style("top", d3.event.pageY - 50 + "px");
 			})
 			.on("mouseout", function () {
-				//change the opacity back to default when hover out
+				//change the opacity of the area back to default when hover out
 				d3.select(this).attr("opacity", "1");
 
 				tooltip.transition().duration(500).style("opacity", 0); //hide tooltip
