@@ -31,6 +31,7 @@ module.exports = {
 			return str;
 		}
 		// ROUTES
+
 		app.use("/api/covid", (req, res) => {
 			let data = [];
 			const API_URI =
